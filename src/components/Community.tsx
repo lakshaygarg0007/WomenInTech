@@ -32,19 +32,19 @@ const Community = () => {
   const upcomingEvents = [
     {
       title: 'Women in AI Summit',
-      date: 'March 15, 2024',
+      date: 'March 15, 2025',
       type: 'Virtual Conference',
       attendees: '500+ registered'
     },
     {
       title: 'Career Growth Workshop',
-      date: 'March 20, 2024',
+      date: 'March 20, 2025',
       type: 'Interactive Workshop',
       attendees: '150+ registered'
     },
     {
       title: 'Networking Night',
-      date: 'March 25, 2024',
+      date: 'March 25, 2025',
       type: 'Social Event',
       attendees: '200+ registered'
     }

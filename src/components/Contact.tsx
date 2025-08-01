@@ -37,13 +37,13 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      details: '+1 (555) 123-4567',
+      details: '+91 99140-87195',
       subtitle: 'Mon-Fri, 9AM-6PM EST'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: 'San Francisco, CA',
+      details: 'Delhi, IN',
       subtitle: 'Global remote community'
     }
   ];

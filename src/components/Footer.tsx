@@ -102,7 +102,7 @@ const Footer = () => {
               </p>
             </div>
             <div className="text-gray-400 text-sm">
-              © 2024 WomenInTech. All rights reserved.
+              © 2025 WomenInTech. All rights reserved.
             </div>
           </div>
         </div>
