@@ -5,10 +5,9 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -17,15 +16,19 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+    setStatus("Sending...");
+    try {
+      // Simulate API call
+      await new Promise((res) => setTimeout(res, 1200));
+      setStatus("Thank you for contacting us!");
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setStatus("Failed to send message. Please try again.");
+    }
   };
+
 
   const contactInfo = [
     {
@@ -103,11 +106,11 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8">
-            {isSubmitted ? (
+            {status === "Thank you for contacting us!" ? (
               <div className="text-center py-12">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Message Sent!</h3>
-                <p className="text-gray-600">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{status}</h3>
+                <p className="text-gray-600">We'll get back to you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -147,26 +150,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Subject
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-                  >
-                    <option value="">Select a subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="services">About Our Services</option>
-                    <option value="community">Join Community</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="support">Support</option>
-                  </select>
-                </div>
+
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">

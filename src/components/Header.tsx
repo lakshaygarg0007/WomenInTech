@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ onResumeToolClick }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             {['About', 'Services', 'Featured', 'Jobs', 'Community', 'Contact'].map((item) => (
               <button
                 key={item}
@@ -44,7 +44,9 @@ const Header: React.FC<HeaderProps> = ({ onResumeToolClick }) => {
                 {item}
               </button>
             ))}
+          
           </nav>
+        
 
           {/* Mobile Menu Button */}
           <button
